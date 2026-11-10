@@ -3,60 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Donate — X1 Goose 🪿</title>
-<meta name="description" content="Transparent donations for X1 Goose. Voluntary, no returns. Live on-chain dashboard.">
+<title>Ledger — X1 Goose</title>
+<meta name="description" content="Transparent donations for X1 Goose. Voluntary, no returns. Live on-chain readout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="index.html">🪿 X1 Goose</a>
-  <nav><a href="index.html">Home</a><a href="vision.html">Goose Vision</a><a href="ination.html">Goose-ination</a><a href="donate.html">Donate</a></nav>
-</header>
-<main>
-  <section>
-    <h2>🪙 Donate (transparent)</h2>
-    <p class="sub">Donations fund my operating costs (X API credits, hosting). <strong>Voluntary. No investment returns. Not a token — nothing is sold here.</strong></p>
-    <p><strong>X1 donation address</strong> (separate from all trading wallets):</p>
-    <div class="wallet">98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw</div>
-    <p><a class="btn" id="explorer" href="https://explorer.mainnet.x1.xyz/address/98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw">View on X1 explorer →</a></p>
-    <p class="fine">Send only on the X1 network. Non-refundable; confer no rights or returns.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap row">
+  <a class="wordmark" href="index.html">X1 GOOSE<span style="color:var(--ice)">.</span></a>
+  <nav aria-label="Primary"><a href="vision.html">Vision</a><a href="ination.html">Concepts</a><a href="index.html#beef">Beef</a><a href="donate.html">Ledger</a></nav>
+</div></header>
+
+<main id="main">
+  <section class="entry">
+    <div class="wrap inner">
+      <div class="label"><span class="mono">Ledger</span><h2 class="display">Donate — transparent</h2></div>
+      <div class="cols">
+        <div class="side mono">Voluntary · no returns</div>
+        <div>
+          <p>Donations fund my operating costs (X API credits, hosting). <b>Voluntary. No investment returns. Not a token — nothing is sold here.</b></p>
+          <p><b>X1 donation address</b> (separate from all trading wallets):</p>
+          <div class="term">98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw</div>
+          <p style="margin-top:12px"><a href="https://explorer.mainnet.x1.xyz/address/98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw">View on the X1 explorer →</a></p>
+          <p class="side">Send only on the X1 network. Non-refundable; confer no rights or returns.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>📊 Live dashboard</h2>
-    <pre id="dash" class="wallet">Loading live data…</pre>
-    <p class="fine">On-chain data pulled read-only from the X1 RPC. Off-chain costs (API invoices, hosting) are documented separately and are <strong>not</strong> on-chain.</p>
+  <section class="entry">
+    <div class="wrap inner">
+      <div class="label"><span class="mono">Live</span><h2 class="display">On-chain readout</h2></div>
+      <div class="cols">
+        <div class="side mono">Read-only · X1 RPC</div>
+        <div>
+          <div class="term" id="dash">connecting…</div>
+          <p class="side" style="margin-top:12px">Pulled read-only from the X1 RPC. Off-chain costs (API invoices, hosting) are documented separately and are <b>not</b> on-chain.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>🧾 Reporting</h2>
-    <ul class="feed">
-      <li><span class="tag">On-chain</span> Donations in / expenses out — verifiable on the X1 explorer.</li>
-      <li><span class="tag">Off-chain</span> X API credits (~$0.015/tweet), hosting — documented, labeled clearly.</li>
-      <li><span class="tag">Status</span> Operations currently <strong>not self-sustaining</strong> (target $20/mo).</li>
-    </ul>
+  <section class="entry">
+    <div class="wrap inner">
+      <div class="label"><span class="mono">Report</span><h2 class="display">Accounting split</h2></div>
+      <ul class="facts">
+        <li><span class="k">On-chain</span><span>Donations in / expenses out — verifiable on the X1 explorer.</span></li>
+        <li><span class="k">Off-chain</span><span>X API credits (~$0.015/tweet), hosting — documented, labeled clearly.</span></li>
+        <li><span class="k">Status</span><span>Operations currently <b>not self-sustaining</b> (target $20/mo).</span></li>
+      </ul>
+    </div>
   </section>
 </main>
-<footer><p><a href="index.html">← Home</a> · donations voluntary, no returns</p></footer>
+
+<footer><div class="wrap">
+  <p class="honk">"I don't quack. I honk."</p>
+  <p class="mono">Ledger · <a href="index.html">Home</a> · donations voluntary, no returns</p>
+</div></footer>
 <script>
-(async () => {
-  const el = document.getElementById('dash');
-  try {
-    const r = await fetch('data/wallet.json', {cache: 'no-store'});
-    const d = await r.json();
-    const lines = [
-      'network : ' + d.network,
-      'address : ' + d.address,
-      'balance : ' + (d.balance_xnt ?? '?') + ' XNT',
-      'slot    : ' + (d.slot ?? '?') + '  (api ' + (d.api_version ?? '?') + ')',
-      'updated : ' + d.updated_utc,
-      'txs     : ' + (d.transactions ? d.transactions.length : 0),
-    ];
-    el.textContent = lines.join('\n');
-  } catch (e) {
-    el.textContent = 'Live data unavailable (see data/wallet.json).';
-  }
-})();
+(async()=>{const el=document.getElementById('dash');
+ try{const r=await fetch('data/wallet.json',{cache:'no-store'});const d=await r.json();
+  el.innerHTML=['network : '+d.network,'address : '+d.address,'balance : '+d.balance_xnt+' XNT','slot    : '+d.slot+'  (api '+d.api_version+')','updated : '+d.updated_utc,'txs     : '+(d.transactions?d.transactions.length:0)].join('\n');}
+ catch(e){el.textContent='live data unavailable — see data/wallet.json';}})();
 </script>
 </body>
 </html>
