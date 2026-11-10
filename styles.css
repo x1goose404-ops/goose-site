@@ -1,0 +1,35 @@
+:root{
+  --ice:#0b1b2b; --ice2:#12293f; --white:#f6fbff; --ink:#0a1622;
+  --pop:#ff8a2b; --line:#2a4a67; --muted:#9fc2dd;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--white); background:linear-gradient(180deg,#0b1b2b,#0a1420);
+}
+a{color:var(--pop)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;
+  border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(11,27,43,.9); backdrop-filter:blur(6px)}
+.brand{font-weight:800;text-decoration:none;color:var(--white);font-size:18px}
+.nav nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
+.nav nav a:hover{color:var(--white)}
+main{max-width:920px;margin:0 auto;padding:0 22px}
+.hero{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;padding:42px 0 8px}
+.hero img{width:100%;border-radius:20px;border:2px solid var(--line);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:30px;line-height:1.2;margin:0 0 10px}
+.sub{color:var(--muted)}
+.btn{display:inline-block;background:var(--pop);color:#20150a;font-weight:800;text-decoration:none;
+  padding:11px 18px;border-radius:12px;margin:6px 0}
+.fine{font-size:13px;color:var(--muted)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 12px}
+.anchors{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.anchors li{background:var(--ice2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.feed{list-style:none;padding:0}
+.feed li{background:var(--ice2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+  background:var(--pop);color:#20150a;border-radius:999px;padding:2px 8px;margin-right:8px}
+footer{border-top:1px solid var(--line);padding:26px 22px;text-align:center;color:var(--muted);font-size:14px}
+.hook{font-weight:800;color:var(--white);font-size:18px}
+.wallet{background:var(--ice2);border:1px solid var(--line);border-radius:12px;padding:14px;word-break:break-all;font-family:ui-monospace,monospace}
+@media(max-width:640px){.hero{grid-template-columns:1fr}.anchors{grid-template-columns:1fr}}
