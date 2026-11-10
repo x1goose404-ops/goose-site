@@ -1,0 +1,11 @@
+{
+  "network": "X1 mainnet",
+  "address": "98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw",
+  "explorer": "https://explorer.mainnet.x1.xyz/address/98FNVQNjYMDj5vEW5c24z4fNWRCYKa5mYPYCyzhivxCw",
+  "updated_utc": "2026-11-10T04:48:15+00:00",
+  "balance_xnt": 0.0,
+  "balance_lamports": 0,
+  "api_version": "4.0.4",
+  "slot": 92180534,
+  "transactions": []
+}
